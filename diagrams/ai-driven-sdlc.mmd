@@ -1,0 +1,35 @@
+%% AI-driven SDLC . Ali Abdullah Khan, JP Morgan Chase
+%% Source for: systems/ai-driven-sdlc.md
+%% Thesis: the knowledge base is the product; the AI is just the interface.
+flowchart LR
+    subgraph intake["1 . Intake"]
+        JIRA["JIRA ticket"]
+        REQ["Requirements intake"]
+    end
+
+    subgraph ground["Source of truth"]
+        KB["Obsidian knowledge base<br/>(if it isn't here, it doesn't exist)"]
+    end
+
+    subgraph spec["2 . Specification"]
+        PRD["AI-drafted PRD"]
+        HREV{"Human review<br/>of the PRD"}
+    end
+
+    subgraph build["3 . Delivery"]
+        TASKS["Task decomposition<br/>(independently testable)"]
+        CODE["Grounded code delivery<br/>(GitHub Copilot)"]
+    end
+
+    subgraph verify["4 . Verification"]
+        TESTS["AI-generated tests<br/>(written against the PRD)"]
+        CI["CI / release validation"]
+    end
+
+    JIRA --> REQ --> PRD --> HREV
+    KB -. grounds .-> PRD
+    KB -. grounds .-> CODE
+    KB -. grounds .-> TESTS
+    HREV -- approved --> TASKS --> CODE --> TESTS --> CI
+    HREV -- "wrong assumption<br/>(cheapest fix point)" --> REQ
+    CI --> SHIP["Ship<br/>(feature-flagged, rollback designed)"]

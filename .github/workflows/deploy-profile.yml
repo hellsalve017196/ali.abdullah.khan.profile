@@ -1,0 +1,77 @@
+name: Deploy GitHub profile
+
+# Mirrors the profile markdown from this repository into the special
+# <owner>/<owner> profile repo (hellsalve017196/hellsalve017196), so that
+# README.md renders as the default GitHub profile page.
+#
+# One-time setup (see profile-setup.md):
+#   1. Create the repo hellsalve017196/hellsalve017196 with a main branch.
+#   2. Mint a fine-grained PAT with `Contents: Read & Write` on that repo.
+#   3. Add it to this repo as the secret PROFILE_DEPLOY_TOKEN.
+#   4. Optional repo variables: PROFILE_REPO, PROFILE_BRANCH.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "**/*.md"
+      - "diagrams/**"
+      - ".deployignore"
+      - "scripts/deploy-profile.sh"
+      - ".github/workflows/deploy-profile.yml"
+  workflow_dispatch:
+
+concurrency:
+  group: deploy-profile
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Resolve target repo
+        id: target
+        run: |
+          REPO="${{ vars.PROFILE_REPO || format('{0}/{0}', github.repository_owner) }}"
+          BRANCH="${{ vars.PROFILE_BRANCH || 'main' }}"
+          echo "repo=$REPO"     >> "$GITHUB_OUTPUT"
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+          echo "Target: $REPO@$BRANCH"
+
+      - name: Checkout target profile repo
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ steps.target.outputs.repo }}
+          token: ${{ secrets.PROFILE_DEPLOY_TOKEN }}
+          ref: ${{ steps.target.outputs.branch }}
+          path: __profile_target
+          fetch-depth: 0
+
+      - name: Run deploy script
+        env:
+          SKIP_LINK_CHECK: "1"
+        run: |
+          chmod +x scripts/deploy-profile.sh
+          scripts/deploy-profile.sh "$GITHUB_WORKSPACE/__profile_target"
+
+      - name: Commit and push to profile repo
+        working-directory: __profile_target
+        run: |
+          set -euo pipefail
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No changes to publish."
+            exit 0
+          fi
+          git commit -m "profile: sync from ${{ github.repository }}@${{ github.sha }}"
+          git push origin "${{ steps.target.outputs.branch }}"

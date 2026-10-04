@@ -1,0 +1,24 @@
+{
+  "name": "ali-abdullah-khan-profile",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Source of truth for the public personal-brand profile of Ali Abdullah Khan (GitHub hellsalve017196). A content repository: markdown pages plus Node linters, mirrored into the GitHub profile repo.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "author": "Ali Abdullah Khan <abdullah017196@gmail.com> (https://alikhan.dev)",
+  "homepage": "https://alikhan.dev",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hellsalve017196/ali.abdullah.khan.profile.git"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "check:links": "node scripts/check-links.js",
+    "check:filenames": "node scripts/check-filenames.js",
+    "check:structure": "node scripts/check-structure.js",
+    "check:profile": "npm run check:filenames && npm run check:structure && npm run check:links",
+    "deploy:profile": "bash scripts/deploy-profile.sh"
+  }
+}

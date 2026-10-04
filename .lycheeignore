@@ -1,0 +1,4 @@
+# LinkedIn returns HTTP 999 to bots
+^https?://(www\.)?linkedin\.com/
+# Google Docs / Drive links are frequently gated to signed-in users
+^https?://docs\.google\.com/

@@ -1,0 +1,32 @@
+name: CI Checks
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  check-profile:
+    name: Profile checks (filenames, structure, links)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: Run profile checks
+        run: npm run check:profile
+
+  lychee-link-check:
+    name: External link check (lychee)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: lycheeverse/lychee-action@v2
+        with:
+          args: >-
+            --no-progress --include-mail=false
+            --accept 200,201,202,204,206,403,429,999
+            --exclude-path node_modules
+            './**/*.md'
+          fail: true

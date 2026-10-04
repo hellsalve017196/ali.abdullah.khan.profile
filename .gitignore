@@ -1,0 +1,22 @@
+# OS
+.DS_Store
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.sw?
+
+# Node
+node_modules
+npm-debug.log*
+*.log
+
+# Local tooling scratch
+.playwright-mcp/
+.claude/
+prompt.md
+
+# Private documents . never commit, never deploy
+CV.md
+*.pdf

@@ -1,0 +1,34 @@
+%% SingleDoor . one front door over three consumer payment rails
+%% Source for: systems/singledoor-payment-platform.md
+%% Conceptual only . no internal architecture is represented here.
+flowchart TB
+    USER["Consumer<br/>(~1M daily users)"]
+
+    subgraph frontdoor["SingleDoor . unified front door"]
+        UI["Shared payment UI<br/>(reusable component library)"]
+        A11Y["Accessibility in the<br/>definition of done"]
+        FLAGS["Feature flags<br/>(author-owned rollout)"]
+    end
+
+    subgraph rails["Payment rails"]
+        BILL["BillPay"]
+        ZELLE["QuickPay with Zelle"]
+        CARD["Card payments"]
+    end
+
+    subgraph ops["Operate"]
+        IDEM["Idempotency"]
+        SLO["SLOs / p95 by flow"]
+        RB["Rollback<br/>(a designed feature)"]
+    end
+
+    USER --> UI
+    A11Y -. gates every story .-> UI
+    FLAGS -. controls exposure .-> UI
+    UI --> BILL
+    UI --> ZELLE
+    UI --> CARD
+    BILL --> IDEM
+    ZELLE --> IDEM
+    CARD --> IDEM
+    IDEM --> SLO --> RB

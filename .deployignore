@@ -1,0 +1,33 @@
+# Files excluded when mirroring this repository into the GitHub profile repo
+# (hellsalve017196/hellsalve017196), where README.md renders as the profile page.
+#
+# Consumed by scripts/deploy-profile.sh.
+# Format: one glob per line, '#' starts a comment, blank lines ignored.
+# Matched case-insensitively against the file's repo-relative path.
+
+# --- private / separately distributed ---
+CV.md
+**/CV.md
+**/*.pdf
+
+# --- tooling and repo-internal docs: not profile content ---
+node_modules/**
+.github/**
+scripts/**
+.playwright-mcp/**
+.claude/**
+package.json
+package-lock.json
+.gitignore
+.deployignore
+.lycheeignore
+.markdownlint.json
+prompt.md
+
+# --- repo-internal meta docs (keep in source, not on the profile) ---
+profile.kb
+tone.md
+profile-setup.md
+CHANGELOG.md
+release-notes.md
+VERSION
