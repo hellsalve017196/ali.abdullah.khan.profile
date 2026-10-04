@@ -29,6 +29,8 @@ _Last reviewed: 2026-10-04 . Maintained by Ali Abdullah Khan._
 
 ## 1. Who is Ali Abdullah Khan?
 
+<img src="https://alikhan.dev/avatar.webp" alt="Ali Abdullah Khan . VP of Software Engineering at JP Morgan Chase, based in Holbrook, New York" title="Ali Abdullah Khan . VP of Software Engineering at JP Morgan Chase. Builds consumer payment platforms used by roughly a million people a day." width="220" align="left" hspace="20" vspace="8">
+
 **Ali Abdullah Khan** is a software engineering leader in **Holbrook, New York**. He is a **Vice President of Software Engineering at JP Morgan Chase**, where he builds consumer payment platforms used by **about a million people every day** and owns them from planning through delivery into post-release support.
 
 The shape of his career is unusual in one specific way: he went deep instead of wide. He joined JP Morgan Chase as an **Associate Software Engineer in March 2019** and became a **Vice President in February 2023** . under four years . on the strength of one platform owned properly rather than five platforms visited briefly.
@@ -38,6 +40,8 @@ That platform is [**SingleDoor**](systems/singledoor-payment-platform.md "The un
 He is a **U.S. Citizen** and needs no sponsorship. He holds a **B.S. in Computer Science and Engineering** from **North South University**, Dhaka, Bangladesh, and an **AWS Certified Cloud Practitioner** certification from September 2023.
 
 **Technical center of gravity:** React, TypeScript, accessibility-first engineering, and AI-assisted development workflows that shorten the path from requirement to production.
+
+<br clear="left">
 
 [![Website](https://img.shields.io/badge/Website-alikhan.dev-0EA5E9?style=flat-square)](https://alikhan.dev)
 [![GitHub](https://img.shields.io/badge/GitHub-hellsalve017196-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/hellsalve017196)

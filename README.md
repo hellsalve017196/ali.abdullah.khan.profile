@@ -33,6 +33,8 @@ _Last reviewed: 2026-10-04 . Maintained by Ali Abdullah Khan._
 
 ## Who is **Ali Abdullah Khan**?
 
+<img src="https://alikhan.dev/avatar.webp" alt="Ali Abdullah Khan . VP of Software Engineering at JP Morgan Chase, based in Holbrook, New York" title="Ali Abdullah Khan . VP of Software Engineering at JP Morgan Chase. Builds consumer payment platforms used by roughly a million people a day." width="220" align="left" hspace="20" vspace="8">
+
 **Ali Abdullah Khan** is a software engineering leader based in Holbrook, New York. At [JP Morgan Chase](experience/01-vp-software-engineering-jpmorgan-chase.md "VP of Software Engineering at JP Morgan Chase since Feb 2023, leading Payment and Transfer Activity.") he builds consumer payment platforms used by **about a million people every day**, and he owns them end to end . planning, delivery, and the post-release support that follows.
 
 Ali joined JP Morgan Chase in **March 2019** as an Associate Software Engineer and was a **Vice President by February 2023**. The work in between is the reason: [SingleDoor](systems/singledoor-payment-platform.md "SingleDoor . unified payment platform for BillPay, QuickPay with Zelle, and card payments."), the unified payment platform behind **BillPay**, **QuickPay with Zelle**, and **card payments**; a reusable component library built from design wireframes; and a push that took the whole platform to [full WCAG accessibility compliance](systems/accessibility-definition-of-done.md "Accessibility moved into the definition of done . keyboard coverage, focus order, contrast, screen-reader smoke test.").
@@ -40,6 +42,8 @@ Ali joined JP Morgan Chase in **March 2019** as an Associate Software Engineer a
 As VP he leads **Payment & Transfer Activity** and spends his time on two things that compound: an [AI-driven SDLC](systems/ai-driven-sdlc.md "JIRA intake to PRD generation to code delivery to automated test coverage, grounded in an Obsidian knowledge base.") that runs from JIRA intake through PRD generation to grounded code delivery and generated tests, and [release tooling](systems/release-cli-tooling.md "Internal CLI tools for CDN publishing and feature flags . self-service releases, no manual checklist.") that made deploys boring enough for any engineer on the team to run one.
 
 Before the bank he was a full-stack developer at [Charter Communications](experience/03-full-stack-software-developer-charter-communications.md "Full Stack Software Developer at Charter Communications, May 2018 to Feb 2019."), modernizing legacy systems with AngularJS and designing REST APIs in TypeScript and Node.js. He holds a **B.S. in Computer Science and Engineering** from **North South University**, Dhaka, and has been pushing code to [GitHub since 2014](https://github.com/hellsalve017196 "72 public repositories . Pull Shark and Arctic Code Vault Contributor.") . 72 public repositories that run from PHP management systems through Canvas games to an [ESP32 adhan clock](projects/adhan-clock-esp32-a1s.md "Networked adhan clock on an Ai-Thinker ESP32-A1S Audio Kit with on-device prayer-time calculation.") that calculates prayer times on-device.
+
+<br clear="left">
 
 ## 1. Ali Now
 
