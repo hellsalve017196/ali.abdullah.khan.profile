@@ -29,7 +29,7 @@ _Last reviewed: 2026-10-04 . Maintained by Ali Abdullah Khan._
 
 ## 1. Who is Ali Abdullah Khan?
 
-<img src="https://alikhan.dev/avatar.webp" alt="Ali Abdullah Khan . VP of Software Engineering at JP Morgan Chase, based in Holbrook, New York" title="Ali Abdullah Khan . VP of Software Engineering at JP Morgan Chase. Builds consumer payment platforms used by roughly a million people a day." width="220" align="left" hspace="20" vspace="8">
+<img src="assets/ali-abdullah-khan.webp" alt="Ali Abdullah Khan . VP of Software Engineering at JP Morgan Chase, based in Holbrook, New York" title="Ali Abdullah Khan . VP of Software Engineering at JP Morgan Chase. Builds consumer payment platforms used by roughly a million people a day." width="220" align="left" hspace="20" vspace="8">
 
 **Ali Abdullah Khan** is a software engineering leader in **Holbrook, New York**. He is a **Vice President of Software Engineering at JP Morgan Chase**, where he builds consumer payment platforms used by **about a million people every day** and owns them from planning through delivery into post-release support.
 

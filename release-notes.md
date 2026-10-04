@@ -3,6 +3,40 @@
 Narrative companion to [`CHANGELOG.md`](./CHANGELOG.md). Repo-internal . not published
 to the profile.
 
+## 0.1.1 . The portrait, self-contained
+
+The profile gained a face. `assets/ali-abdullah-khan.webp` now sits left of the bio
+prose in both `README.md` and the long-form mirror.
+
+**The decision worth recording** is not that an image was added . it is that the image
+is **committed rather than hotlinked**. The first version of this change pointed at
+`https://alikhan.dev/avatar.webp` directly, which works right up until the site is down,
+the file is renamed, or the domain lapses . at which point the GitHub profile shows a
+broken image and nobody tells you. A profile page whose rendering depends on a second
+piece of infrastructure staying up is not self-contained, and 16 KB is a cheap price for
+removing that dependency.
+
+The relative path has a second benefit that the remote URL could not offer:
+`check:links` walks every `<img src>` and verifies it resolves on disk. A hotlinked
+image is invisible to that check . `lychee` would eventually catch a 404, but only on
+the schedule CI happens to run, and only if the host does not answer with a soft error.
+
+**What this costs.** `0.1.0` shipped with zero binary assets and `profile.kb` said so in
+four places . an at-a-glance metric, the directory map, a content convention, and a
+verified observation. All four are now corrected to one. The underlying principle was
+never "no images"; it was **"never commit a badge icon set"**, because duplicate icon
+trees drifting apart is the characteristic failure of profile repositories built this
+way. That principle is intact: all 73 badges remain shields.io URLs, and `assets/` holds
+the portrait and nothing else.
+
+`.github/workflows/deploy-profile.yml` now lists `assets/**` among its trigger paths, so
+replacing the portrait publishes the same way a content edit does.
+
+**Verification.** The source URL returned `200 image/webp` at 16,212 bytes; the
+committed file matches that byte count, `file(1)` reports a 400x400 VP8 WebP, and the
+image was opened and confirmed to be a portrait photograph before it was committed.
+`npm run check:profile` exits 0 across all three checks.
+
 ## 0.1.0 . Initial profile build
 
 This release creates the repository from scratch as the content source for
@@ -40,9 +74,9 @@ own summaries rather than audited figures: the `~1M daily users` scale descripto
 
 **Deliberate departures from the reference pattern.** Three, each for a reason:
 
-1. **No local image set.** Technology badges are shields.io URLs rather than a
-   committed icon directory, so there are no binary assets to keep in sync and no
-   duplicate icon trees to drift apart.
+1. **No committed icon set.** Technology badges are shields.io URLs rather than a
+   committed icon directory, so there are no icon trees to keep in sync or drift
+   apart. (`0.1.1` adds the portrait as the single committed binary . see below.)
 2. **`systems/` instead of an "inventions" directory.** The pages describe platforms
    and workflows Ali built inside an employer's product, so the honest noun is *system*.
 3. **No tooltip generator.** Link and badge hover text is written per link rather than

@@ -15,6 +15,7 @@ on:
     branches: [main]
     paths:
       - "**/*.md"
+      - "assets/**"
       - "diagrams/**"
       - ".deployignore"
       - "scripts/deploy-profile.sh"
