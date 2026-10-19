@@ -2,6 +2,8 @@
 
 > Source: https://alikhan.dev/ · Analyzed: 2026-10-04
 
+<img src="assets/ali-abdullah-khan.webp" alt="Ali Abdullah Khan · VP of Software Engineering at JP Morgan Chase, based in Holbrook, New York" title="Ali Abdullah Khan · VP of Software Engineering at JP Morgan Chase. Builds consumer payment platforms used by roughly a million people a day." width="220">
+
 ## Identity
 
 | Field | Value |
